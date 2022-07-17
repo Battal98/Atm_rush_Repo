@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Signals;
 
 namespace Managers
 {
@@ -27,17 +28,17 @@ namespace Managers
 
         private void OnGameOpen()
         {
-
+            CoreGameSignals.Instance.onGameOpen.Invoke();
         }
 
         private void OnGameClose()
         {
-
+            CoreGameSignals.Instance.onGameClose.Invoke();
         }
 
-        private void OnApplicationPause(bool pause)
+        private void OnApplicationFocus(bool vaalue)
         {
-            
+            Debug.Log(vaalue);
         }
 
     } 

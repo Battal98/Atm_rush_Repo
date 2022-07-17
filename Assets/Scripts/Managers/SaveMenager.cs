@@ -4,12 +4,30 @@ using UnityEngine;
 using Extentions;
 using Signals;
 using System;
+using Controlers;
+using Enums;
 
 namespace Managers
 {
     public class SaveMenager : MonoBehaviour
     {
+        #region Self Veriables
 
+        #region Prive Veriables
+
+        private bool _status;
+        
+
+        #endregion
+
+        #region Serilazible Veriables
+
+        [SerializeField] SaveDataController saveController;
+        [SerializeField] LoadDataController loadController; 
+        
+        #endregion
+
+        #endregion
 
         private void OnEnable()
         {
@@ -37,25 +55,27 @@ namespace Managers
 
         private void OnGameOpen()
         {
-            LoadData();
+            Load();
         }
 
         private void OnGameClose()
         {
-            SaveData();
-        }
-
-        private void OnGamePause(bool status)
-        {
-            SaveData();
-        }
-        private void LoadData()
-        {
+            Save();
 
         }
-        private void SaveData()
+
+        private void OnGamePause(bool value)
+        {
+            _status = value;
+            Save();
+        }
+        private void Load()
         {
 
+        }
+        private void Save()
+        {
+            
         }
 
 

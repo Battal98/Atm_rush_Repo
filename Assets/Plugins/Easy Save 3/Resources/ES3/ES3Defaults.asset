@@ -33,6 +33,7 @@ MonoBehaviour:
     - Cinemachine
     - ToonyColorsPro2.Demo
     - ToonyColorsPro.Runtime
+    - Assembly-CSharp
     - ToonyColorsPro.Editor
     - ToonyColorsPro.Demo.Editor
     showAdvancedSettings: 0

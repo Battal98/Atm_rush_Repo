@@ -11,9 +11,5 @@ namespace Signals
         public UnityAction onGameOpen = delegate { };
         public UnityAction onGameClose = delegate { };
         public UnityAction<bool> onGamePause = delegate { };
-
-
-
-
     } 
 }

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Extentions;
+using UnityEngine.Events;
 
-public class CoreGameSignals : MonoBehaviour
+namespace Signals
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CoreGameSignals : MonoSingleton<CoreGameSignals>
     {
-        
-    }
+        public UnityAction onGameOpen = delegate { };
+        public UnityAction onGameClose = delegate { };
+        public UnityAction<bool> onGamePause = delegate { };
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
+    } 
 }

@@ -5,17 +5,40 @@ using UnityEngine;
 namespace Managers
 {
     public class GameMenager : MonoBehaviour
-    {
-        // Start is called before the first frame update
-        void Start()
+    {   
+
+        private void Awake()
+        {
+            Application.targetFrameRate = 60;
+            OnGameOpen();
+        }
+
+        private void OnEnable()
+        {
+            OnGameOpen();
+
+
+        }
+
+        private void OnDisable()
+        {
+            OnGameClose();
+        }
+
+        private void OnGameOpen()
         {
 
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnGameClose()
         {
 
         }
+
+        private void OnApplicationPause(bool pause)
+        {
+            
+        }
+
     } 
 }

@@ -1,14 +1,19 @@
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-namespace Enums
+namespace Keys
 {
     [Serializable]
-    public enum SaveData
+    public struct SaveGameDataParams
     {
-        TotalWealth,
-        StackLevel,
-        InCome,
-        Level
+        public int TotalWealth;
+        public int StackLevel;
+        public int InCome;
+        public int Level;
+        //public bool SFX;
+        //public bool VFX;
+        public List<GameObject> Shop;//Character ID
     }
                                     
 

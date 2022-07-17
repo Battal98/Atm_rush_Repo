@@ -5,7 +5,7 @@ using Extentions;
 using Signals;
 using System;
 using Controlers;
-using Enums;
+using Keys;
 
 namespace Managers
 {
@@ -16,7 +16,7 @@ namespace Managers
         #region Prive Veriables
 
         private bool _status;
-        
+        private SaveGameDataParams saveGameDataParams;
 
         #endregion
 
@@ -54,29 +54,26 @@ namespace Managers
 
 
         private void OnGameOpen()
-        {
+        {   
             Load();
         }
 
         private void OnGameClose()
-        {
-            Save();
-
+        {   
+            
+            saveController.SaveEntry(saveGameDataParams);
         }
 
         private void OnGamePause(bool value)
         {
             _status = value;
-            Save();
+            saveController.SaveEntry(saveGameDataParams);
         }
         private void Load()
         {
 
         }
-        private void Save()
-        {
-            
-        }
+       
 
 
 

@@ -7,18 +7,24 @@ namespace Managers
 {
     public class UIManager : MonoBehaviour
     {
+
         #region Self Variables
 
         #region Serialized Variables
 
         [SerializeField] 
         private UIPanelController uiPanelController;
+
         [SerializeField] 
         private LevelPanelController levelPanelController;
 
+        [SerializeField]
+        private MoneyPanelController moneyPanelController;
+
         #endregion
 
         #endregion
+
 
         #region Event Subscriptions
 
@@ -32,6 +38,7 @@ namespace Managers
             UISignals.Instance.onOpenPanel += OnOpenPanel;
             UISignals.Instance.onClosePanel += OnClosePanel;
             UISignals.Instance.onSetLevelText += OnSetLevelText;
+            UISignals.Instance.onSetMoneyText += OnSetMoneyText;
 
             #region CoreGameSignals Subscribetion
 
@@ -46,6 +53,7 @@ namespace Managers
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
             UISignals.Instance.onSetLevelText -= OnSetLevelText;
+            UISignals.Instance.onSetMoneyText -= OnSetMoneyText;
 
             #region CoreGameSignals Unsubscribetion
 
@@ -61,6 +69,7 @@ namespace Managers
 
         #endregion
 
+
         private void OnOpenPanel(UIPanels panelParam)
         {
             uiPanelController.OpenPanel(panelParam);
@@ -75,6 +84,11 @@ namespace Managers
         private void OnSetLevelText(int value)
         {
             levelPanelController.SetLevelText(value);
+        }
+
+        private void OnSetMoneyText(int value)
+        {
+            moneyPanelController.SetMoneyText(value);
         }
 
         private void OnPlay()

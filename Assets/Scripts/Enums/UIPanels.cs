@@ -9,6 +9,7 @@ namespace Enums
         FailPanel,
         LevelPanel,
         MiniGamePanel,
-        StartPanel
+        StartPanel,
+        MoneyPanel
     }
 }

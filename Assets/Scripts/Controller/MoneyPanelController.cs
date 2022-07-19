@@ -1,24 +1,27 @@
 using TMPro;
 using UnityEngine;
 
-public class MoneyPanelController : MonoBehaviour
+namespace Controllers
 {
-    #region Self Variables
-
-    #region Serialized Variables
-
-    [SerializeField]
-    private TextMeshProUGUI moneyText;
-
-    #endregion
-
-    #endregion
-
-
-    public void SetMoneyText(int value)
+    public class MoneyPanelController : MonoBehaviour
     {
-        moneyText.text = (value).ToString();
-    }
+        #region Self Variables
 
+        #region Serialized Variables
+
+        [SerializeField]
+        private TextMeshProUGUI moneyText;
+
+        #endregion
+
+        #endregion
+
+
+        public void SetMoneyText(int value)
+        {
+            moneyText.text = (value).ToString();
+        }
+
+    }
 }
 

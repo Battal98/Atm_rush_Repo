@@ -4,7 +4,7 @@ using UnityEngine;
 using Extentions;
 using Signals;
 using System;
-using Controlers;
+using Controllers;
 
 
 namespace Managers

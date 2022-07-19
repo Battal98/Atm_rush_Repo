@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Controller
+namespace Controllers
 {
     public class LevelPanelController : MonoBehaviour
     {

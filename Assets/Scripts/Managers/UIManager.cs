@@ -2,6 +2,8 @@ using Controller;
 using Enums;
 using Signals;
 using UnityEngine;
+using Data.ValueObject;
+using Data.UnityObject;
 
 namespace Managers
 {
@@ -10,8 +12,14 @@ namespace Managers
 
         #region Self Variables
 
-        #region Serialized Variables
+        #region Public Variables
+        [Header("Datas")]
+        public StackButtonData StackButtonData;
+        public IncomeButtonData IncomeButtonData;
+        #endregion
 
+        #region Serialized Variables
+        [Space]
         [SerializeField] 
         private UIPanelController uiPanelController;
 
@@ -22,7 +30,16 @@ namespace Managers
         private MoneyPanelController moneyPanelController;
 
         [SerializeField]
-        private StackButtonController stackButtonController;
+        private StackButtonController stackButtonController;   
+        
+        [SerializeField]
+        private IncomeButtonController incomeButtonController;
+
+        #endregion
+
+        #region Private Variables
+
+        private int _stackButtonLevel;
 
         #endregion
 
@@ -30,14 +47,23 @@ namespace Managers
 
         private void Awake()
         {
-            
+            /*_stackButtonLevel = GetStackButtonLevel();
+            StackButtonData = GetStackButtonData();*/
+            OnSetStackButtonText(StackButtonData.StackButtonPrize, StackButtonData.StackButtonLevelCount);
+            OnSetIncomeButtonText(IncomeButtonData.IncomeButtonPrize, IncomeButtonData.IncomeButtonLevelCount);
         }
-
+/*
+        private int GetStackButtonLevel()
+        {
+            if (!ES3.FileExists()) return 0;
+            return ES3.KeyExists("StackLevel") ? ES3.Load<int> ("StackLevel") : 0;
+        }
         private StackButtonData GetStackButtonData()
         {
-            return null;
+            var newStackButtonLevelData = _stackButtonLevel % Resources.Load<CD_StackButton>("Data/CD_StackButton").StackButtonData.StackButtonLevelCount;
+            return Resources.Load<CD_StackButton>("Data/CD_StackButton").StackButtonData;
         }
-
+*/
         #region Event Subscriptions
 
         private void OnEnable()
@@ -51,7 +77,8 @@ namespace Managers
             UISignals.Instance.onClosePanel += OnClosePanel;
             UISignals.Instance.onSetLevelText += OnSetLevelText;
             UISignals.Instance.onSetMoneyText += OnSetMoneyText;
-            UISignals.Instance.onSetStackLevelText += OnSetStackText;
+            UISignals.Instance.onSetStackPrizeAndLevelText += OnSetStackButtonText;
+            UISignals.Instance.onSetIncomePrizeAndLevelText += OnSetIncomeButtonText;
 
             #region CoreGameSignals Subscribetion
 
@@ -67,7 +94,8 @@ namespace Managers
             UISignals.Instance.onClosePanel -= OnClosePanel;
             UISignals.Instance.onSetLevelText -= OnSetLevelText;
             UISignals.Instance.onSetMoneyText -= OnSetMoneyText;
-            UISignals.Instance.onSetStackLevelText = OnSetStackText;
+            UISignals.Instance.onSetStackPrizeAndLevelText -= OnSetStackButtonText;
+            UISignals.Instance.onSetIncomePrizeAndLevelText -= OnSetIncomeButtonText;
 
             #region CoreGameSignals Unsubscribetion
 
@@ -104,9 +132,13 @@ namespace Managers
             moneyPanelController.SetMoneyText(value);
         }
 
-        private void OnSetStackText(int value)
+        private void OnSetStackButtonText(int _prizeValue, int _levelValue)
         {
-            stackButtonController.SetStackLevelText(value);
+            stackButtonController.SetStackPrizeAndLevelText(_prizeValue, _levelValue);
+        }        
+        private void OnSetIncomeButtonText(int _prizeValue, int _levelValue)
+        {
+           incomeButtonController.SetIncomePrizeAndLevelText(_prizeValue, _levelValue);
         }
 
         private void OnPlay()
@@ -125,19 +157,36 @@ namespace Managers
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
         }
-        
-        public void ClickIncomeButton()
-        {
-            // Invoke UIsignal for change text 
-                UISignals.Instance.onSetStackLevelText?.Invoke(stackButtonController.StackLevelCount);
-            
 
+        private void SetStackPrizeandLevelIndexIncrease()
+        {
+            if (StackButtonData.StackButtonPrize >= 0)
+            {
+                StackButtonData.StackButtonLevelCount++;
+                StackButtonData.StackButtonPrize += 100;
+            }
         }
 
-        public void OnClickStackCountButton()
+        private void SetIncomePrizeAndLevelText()
         {
+            if (IncomeButtonData.IncomeButtonPrize >= 0)
+            {
+                IncomeButtonData.IncomeButtonLevelCount++;
+                IncomeButtonData.IncomeButtonPrize += 100;
+            }
+        }
 
-           // Invoke UIsignal for change text 
+        public void ClickIncomeButton()
+        {
+            //stackSignals invoke 
+            SetIncomePrizeAndLevelText();
+            UISignals.Instance.onSetIncomePrizeAndLevelText?.Invoke(IncomeButtonData.IncomeButtonPrize, IncomeButtonData.IncomeButtonLevelCount);
+        }
+
+        public void ClickStackButton()
+        {
+            SetStackPrizeandLevelIndexIncrease();
+            UISignals.Instance.onSetStackPrizeAndLevelText?.Invoke(StackButtonData.StackButtonPrize, StackButtonData.StackButtonLevelCount);
         }
 
         public void OnClickStoreButton()
@@ -146,11 +195,12 @@ namespace Managers
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StorePanel);
         }
 
-        public void OnClickStoreCloseButton(GameObject _closeButtonParentPanel)
+        public void OnClickCloseButton(GameObject _closeButtonParentPanel)
         {
             UISignals.Instance.onOpenPanel.Invoke(UIPanels.StartPanel);
             _closeButtonParentPanel.SetActive(false);
         }
+
 
         public void Play()
         {

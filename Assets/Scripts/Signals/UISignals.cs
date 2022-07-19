@@ -10,6 +10,7 @@ namespace Signals
         public UnityAction<UIPanels> onClosePanel;
         public UnityAction<int> onSetLevelText;
         public UnityAction<int> onSetMoneyText;
-        public UnityAction<int> onSetStackLevelText;
+        public UnityAction<int,int> onSetStackPrizeAndLevelText;
+        public UnityAction<int,int> onSetIncomePrizeAndLevelText;
     }
 }

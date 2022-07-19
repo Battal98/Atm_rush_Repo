@@ -49,10 +49,13 @@ namespace Managers
         {
             /*_stackButtonLevel = GetStackButtonLevel();
             StackButtonData = GetStackButtonData();*/
+
             OnSetStackButtonText(StackButtonData.StackButtonPrize, StackButtonData.StackButtonLevelCount);
             OnSetIncomeButtonText(IncomeButtonData.IncomeButtonPrize, IncomeButtonData.IncomeButtonLevelCount);
         }
-/*
+
+        #region Save Data and Load Data Jobs
+        /*
         private int GetStackButtonLevel()
         {
             if (!ES3.FileExists()) return 0;
@@ -64,6 +67,8 @@ namespace Managers
             return Resources.Load<CD_StackButton>("Data/CD_StackButton").StackButtonData;
         }
 */
+        #endregion
+
         #region Event Subscriptions
 
         private void OnEnable()
@@ -121,7 +126,7 @@ namespace Managers
             uiPanelController.ClosePanel(panelParam);
         }
 
-
+        #region Set Text Jobs
         private void OnSetLevelText(int value)
         {
             levelPanelController.SetLevelText(value);
@@ -135,29 +140,15 @@ namespace Managers
         private void OnSetStackButtonText(int _prizeValue, int _levelValue)
         {
             stackButtonController.SetStackPrizeAndLevelText(_prizeValue, _levelValue);
-        }        
+        }
         private void OnSetIncomeButtonText(int _prizeValue, int _levelValue)
         {
-           incomeButtonController.SetIncomePrizeAndLevelText(_prizeValue, _levelValue);
+            incomeButtonController.SetIncomePrizeAndLevelText(_prizeValue, _levelValue);
         }
 
-        private void OnPlay()
-        {
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
-        }
+        #endregion
 
-        private void OnLevelFailed()
-        {
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.FailPanel);
-        }
-
-        private void OnLevelSuccessful()
-        {
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
-        }
-
+        #region Booster (Stack and Income) Jobs
         private void SetStackPrizeandLevelIndexIncrease()
         {
             if (StackButtonData.StackButtonPrize >= 0)
@@ -189,22 +180,38 @@ namespace Managers
             UISignals.Instance.onSetStackPrizeAndLevelText?.Invoke(StackButtonData.StackButtonPrize, StackButtonData.StackButtonLevelCount);
         }
 
+        #endregion
+
+        #region Click Store Props
         public void OnClickStoreButton()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StorePanel);
         }
 
-        public void OnClickCloseButton(GameObject _closeButtonParentPanel)
+        #endregion
+
+        private void OnPlay()
         {
-            UISignals.Instance.onOpenPanel.Invoke(UIPanels.StartPanel);
-            _closeButtonParentPanel.SetActive(false);
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
         }
 
+        private void OnLevelFailed()
+        {
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.FailPanel);
+        }
+
+        private void OnLevelSuccessful()
+        {
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
+        }
 
         public void Play()
         {
             //CoreGameSignals onplay Invoke here
+            CoreGameSignals.Instance.onGameOpen?.Invoke();
         }
 
         public void NextLevel()
@@ -219,6 +226,12 @@ namespace Managers
             //CoreGameSignals onrestart Invoke here
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
+        }
+
+        public void OnClickCloseButton(GameObject _closeButtonParentPanel)
+        {
+            UISignals.Instance.onOpenPanel.Invoke(UIPanels.StartPanel);
+            _closeButtonParentPanel.SetActive(false);
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using Command;
 using Signals;
 using System;
-using Data;
+using Data.ValueObject;
 
 namespace Managers
 {

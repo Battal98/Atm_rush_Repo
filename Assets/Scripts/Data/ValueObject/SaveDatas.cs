@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Data
+namespace Data.ValueObject
 {
     
     public class SaveGameDataParams

@@ -1,26 +1,29 @@
 using UnityEngine;
 using TMPro;
 
-public class StackButtonController : MonoBehaviour
+namespace Controllers
 {
-    #region Self Variables
-
-    #region Serialized Variables
-
-    [SerializeField]
-    private TextMeshProUGUI stackLevelText;    
-    [SerializeField]
-    private TextMeshProUGUI stackPrizeText;
-
-    #endregion
-
-    #endregion
-
-
-    public void SetStackPrizeAndLevelText(int _prizeValue, int _levelValue)
+    public class StackButtonController : MonoBehaviour
     {
-        stackPrizeText.text = (_prizeValue).ToString() + "$";
-        stackLevelText.text = "Level " + (_levelValue).ToString();
-    }
+        #region Self Variables
 
+        #region Serialized Variables
+
+        [SerializeField]
+        private TextMeshProUGUI stackLevelText;
+        [SerializeField]
+        private TextMeshProUGUI stackPrizeText;
+
+        #endregion
+
+        #endregion
+
+
+        public void SetStackPrizeAndLevelText(int _prizeValue, int _levelValue)
+        {
+            stackPrizeText.text = (_prizeValue).ToString() + "$";
+            stackLevelText.text = "Level " + (_levelValue).ToString();
+        }
+
+    }
 }

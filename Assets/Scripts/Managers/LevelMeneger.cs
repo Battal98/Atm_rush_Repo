@@ -57,7 +57,7 @@ namespace Managers
         }
 
         private void SubscribeEvents()
-        {
+        {   
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onPlay += OnReset;
         }

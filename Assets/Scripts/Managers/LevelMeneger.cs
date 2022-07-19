@@ -2,7 +2,7 @@ using UnityEngine;
 using Command;
 using Signals;
 using System;
-using Data;
+using Data.ValueObject;
 
 namespace Managers
 {
@@ -57,7 +57,7 @@ namespace Managers
         }
 
         private void SubscribeEvents()
-        {
+        {   
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onPlay += OnReset;
         }

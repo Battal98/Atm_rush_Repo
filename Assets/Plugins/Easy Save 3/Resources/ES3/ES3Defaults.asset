@@ -32,8 +32,8 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - Cinemachine
     - ToonyColorsPro2.Demo
-    - Assembly-CSharp
     - ToonyColorsPro.Runtime
+    - Assembly-CSharp
     - ToonyColorsPro.Editor
     - ToonyColorsPro.Demo.Editor
     showAdvancedSettings: 0

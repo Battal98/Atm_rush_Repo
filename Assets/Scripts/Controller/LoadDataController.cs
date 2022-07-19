@@ -1,6 +1,6 @@
 using Data;
 
-namespace Controlers
+namespace Controllers
 {
     public class LoadDataController
     {

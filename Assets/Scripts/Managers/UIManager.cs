@@ -21,10 +21,22 @@ namespace Managers
         [SerializeField]
         private MoneyPanelController moneyPanelController;
 
-        #endregion
+        [SerializeField]
+        private StackButtonController stackButtonController;
 
         #endregion
 
+        #endregion
+
+        private void Awake()
+        {
+            
+        }
+
+        private StackButtonData GetStackButtonData()
+        {
+            return null;
+        }
 
         #region Event Subscriptions
 
@@ -39,6 +51,7 @@ namespace Managers
             UISignals.Instance.onClosePanel += OnClosePanel;
             UISignals.Instance.onSetLevelText += OnSetLevelText;
             UISignals.Instance.onSetMoneyText += OnSetMoneyText;
+            UISignals.Instance.onSetStackLevelText += OnSetStackText;
 
             #region CoreGameSignals Subscribetion
 
@@ -54,6 +67,7 @@ namespace Managers
             UISignals.Instance.onClosePanel -= OnClosePanel;
             UISignals.Instance.onSetLevelText -= OnSetLevelText;
             UISignals.Instance.onSetMoneyText -= OnSetMoneyText;
+            UISignals.Instance.onSetStackLevelText = OnSetStackText;
 
             #region CoreGameSignals Unsubscribetion
 
@@ -68,7 +82,6 @@ namespace Managers
         }
 
         #endregion
-
 
         private void OnOpenPanel(UIPanels panelParam)
         {
@@ -91,6 +104,11 @@ namespace Managers
             moneyPanelController.SetMoneyText(value);
         }
 
+        private void OnSetStackText(int value)
+        {
+            stackButtonController.SetStackLevelText(value);
+        }
+
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
@@ -106,6 +124,20 @@ namespace Managers
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
+        }
+        
+        public void ClickIncomeButton()
+        {
+            // Invoke UIsignal for change text 
+                UISignals.Instance.onSetStackLevelText?.Invoke(stackButtonController.StackLevelCount);
+            
+
+        }
+
+        public void OnClickStackCountButton()
+        {
+
+           // Invoke UIsignal for change text 
         }
 
         public void OnClickStoreButton()

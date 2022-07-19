@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &14527064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -181,6 +181,8 @@ GameObject:
   - component: {fileID: 18692713}
   - component: {fileID: 18692716}
   - component: {fileID: 18692717}
+  - component: {fileID: 18692719}
+  - component: {fileID: 18692718}
   - component: {fileID: 18692715}
   m_Layer: 0
   m_Name: UIManager
@@ -204,6 +206,7 @@ MonoBehaviour:
   uiPanelController: {fileID: 18692715}
   levelPanelController: {fileID: 18692716}
   moneyPanelController: {fileID: 18692717}
+  stackButtonController: {fileID: 18692718}
 --- !u!4 &18692714
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +268,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1205814528}
+--- !u!114 &18692718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18692712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17f029b153783842a698468d4b2eb08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StackLevelCount: 1
+  stackLevelText: {fileID: 0}
+  Prize: 100
+--- !u!114 &18692719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18692712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117af09e71f8c5e4bb95145162d13f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &23440218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1895560502
 RectTransform:
   m_ObjectHideFlags: 0

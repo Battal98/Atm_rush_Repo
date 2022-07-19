@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class IncomeButtonController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Self Variables
 
-    // Update is called once per frame
-    void Update()
+    #region Serialized Variables
+
+    [SerializeField]
+    private TextMeshProUGUI incomeLevelText;
+    [SerializeField]
+    private TextMeshProUGUI incomePrizeText;
+
+    #endregion
+
+    #endregion
+
+
+    public void SetIncomePrizeAndLevelText(int _prizeValue, int _levelValue)
     {
-        
+        incomePrizeText.text = (_prizeValue).ToString() + "$";
+        incomeLevelText.text = "Level " + (_levelValue).ToString();
     }
 }

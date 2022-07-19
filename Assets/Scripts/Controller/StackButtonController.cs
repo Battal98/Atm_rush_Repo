@@ -5,36 +5,22 @@ public class StackButtonController : MonoBehaviour
 {
     #region Self Variables
 
-    #region Public Variables
-
-    public int StackLevelCount = 1;
-
-    #endregion
-
     #region Serialized Variables
 
     [SerializeField]
-    private TextMeshProUGUI stackLevelText;
-
+    private TextMeshProUGUI stackLevelText;    
     [SerializeField]
-    private int Prize = 100;
+    private TextMeshProUGUI stackPrizeText;
 
     #endregion
 
     #endregion
 
 
-    public void SetStackLevelText(int value)
+    public void SetStackPrizeAndLevelText(int _prizeValue, int _levelValue)
     {
-        stackLevelText.text = (value).ToString();
+        stackPrizeText.text = (_prizeValue).ToString() + "$";
+        stackLevelText.text = "Level " + (_levelValue).ToString();
     }
 
-    public void SetStackPrizeandLevelIndex()
-    {
-        if (Prize >= 0)
-        {
-            StackLevelCount++;
-            Prize += 100;
-        }
-    }
 }

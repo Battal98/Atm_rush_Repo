@@ -1,32 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Data;
 
 namespace Controlers
 {
-    public class LoadDataController : MonoBehaviour
+    public class LoadDataController
     {
         #region Self Veriables
 
         #region Privete Veriables
-        private LoadGameDataParams saveDataParams;
-        int dd;
+        private LoadGameDataParams _loadDataParams;
+        
         #endregion
 
         #endregion
 
         public void LoadData()
         {
-            if (saveDataParams.NewLevel >= 0)
+            if (_loadDataParams.NewLevel >= 0)
             {
-                ES3.Load("Level", saveDataParams.NewLevel);
+                ES3.Load("Level", _loadDataParams.NewLevel);
             }
 
-            if (saveDataParams.NewTotalWealth >= 0) ES3.Load("TotalWealth", saveDataParams.NewTotalWealth);
-            if (saveDataParams.NewStackLevel >= 0) ES3.Load("StackLevel", saveDataParams.NewStackLevel);
-            if (saveDataParams.NewInCome >= 0) ES3.Load("NewInCome", saveDataParams.NewInCome);
-          
+            if (_loadDataParams.NewTotalWealth >= 0) ES3.Load("TotalWealth", _loadDataParams.NewTotalWealth);
+            if (_loadDataParams.NewStackLevel >= 0) ES3.Load("StackLevel", _loadDataParams.NewStackLevel);
+            if (_loadDataParams.NewStackLevel >= 0) ES3.Load("StackLevel", _loadDataParams.NewStackLevelPrice);
+            if (_loadDataParams.NewInCome >= 0) ES3.Load("NewInCome", _loadDataParams.NewInCome);
+            if (_loadDataParams.NewInCome >= 0) ES3.Load("NewInCome", _loadDataParams.NewInComePrice);
+
 
 
             //if (saveDataParams.SFX != null) ES3.Save("SFX", saveDataParams.SFX);

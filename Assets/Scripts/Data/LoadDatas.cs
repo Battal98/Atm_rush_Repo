@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Data
 {
-    public struct LoadGameDataParams
+    public class LoadGameDataParams
     {
         public int NewTotalWealth;
         public int NewStackLevel;
+        public int NewStackLevelPrice;
         public int NewInCome;
+        public int NewInComePrice;
         public int NewLevel;
         //public bool SFX;
         //public bool VFX;
-        public List<GameObject> NewShop;//Character ID
+        //public List<GameObject> NewShop;//Character ID
     }
 }

@@ -4,15 +4,8 @@ using UnityEngine;
 
 namespace Command
 {
-    public class LevelLoaderCommand 
+    public class ClearActiveLevelCommand 
     {
-        public void LoadLevel()
-        {
-            
-
-
-
-
-        }
+       
     } 
 }

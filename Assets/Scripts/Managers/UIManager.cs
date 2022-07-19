@@ -108,6 +108,18 @@ namespace Managers
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
         }
 
+        public void OnClickStoreButton()
+        {
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StorePanel);
+        }
+
+        public void OnClickStoreCloseButton(GameObject _closeButtonParentPanel)
+        {
+            UISignals.Instance.onOpenPanel.Invoke(UIPanels.StartPanel);
+            _closeButtonParentPanel.SetActive(false);
+        }
+
         public void Play()
         {
             //CoreGameSignals onplay Invoke here

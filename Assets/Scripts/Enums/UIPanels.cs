@@ -10,6 +10,7 @@ namespace Enums
         LevelPanel,
         MiniGamePanel,
         StartPanel,
-        MoneyPanel
+        MoneyPanel,
+        StorePanel
     }
 }

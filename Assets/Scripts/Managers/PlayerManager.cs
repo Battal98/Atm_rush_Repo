@@ -1,9 +1,7 @@
 using System;
-using Controllers;
+using Controlers;
 using Data.UnityObject;
 using Data.ValueObject;
-using Data.ValueObject
-using Data.UnityObject;
 using Keys;
 using Signals;
 using UnityEngine;
@@ -84,7 +82,7 @@ public class PlayerManager : MonoBehaviour
     #endregion
     private void Awake()
     {
-        playerData = GetPlayerData();
+        PlayerData = GetPlayerData();
     }
 
     private PlayerData GetPlayerData()=> Resources.Load<CD_Player>("Data/CD_Player").Data;

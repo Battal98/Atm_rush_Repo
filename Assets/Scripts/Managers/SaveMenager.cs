@@ -5,7 +5,7 @@ using Extentions;
 using Signals;
 using System;
 using Controlers;
-using Keys;
+
 
 namespace Managers
 {
@@ -15,8 +15,8 @@ namespace Managers
 
         #region Prive Veriables
 
-        private bool _status;
-        private SaveGameDataParams saveGameDataParams;
+        
+       
 
         #endregion
 
@@ -39,12 +39,14 @@ namespace Managers
             CoreGameSignals.Instance.onGameOpen += OnGameOpen;
             CoreGameSignals.Instance.onGameClose += OnGameClose;
             CoreGameSignals.Instance.onGamePause += OnGamePause;
+            //CoreGameSignals.Instance.onWhencrash›tem += OnWhencrash›tem;
         }
         private void UnSubscribeEvents()
         {
             CoreGameSignals.Instance.onGameOpen -= OnGameOpen;
             CoreGameSignals.Instance.onGameClose -= OnGameClose;
             CoreGameSignals.Instance.onGamePause -= OnGamePause;
+            //CoreGameSignals.Instance.onWhencrash›tem -= OnWhencrash›tem;
         }
 
         private void OnDisable()
@@ -61,27 +63,32 @@ namespace Managers
         private void OnGameClose()
         {   
             
-            saveController.SaveEntry(saveGameDataParams);
+            saveController.SaveData();
         }
 
         private void OnGamePause(bool value)
         {
-            _status = value;
-            saveController.SaveEntry(saveGameDataParams);
+            
+            if(value==false)Save();
+            else Load();
         }
         private void Load()
         {
-
+            loadController.LoadData();
         }
        
-
-
-
-
-
-
-
-
+        private void Save()
+        {  
+            saveController.SaveData();
+        }
+        private void ChangeMoney()
+        {   
+            Load();
+        }
+        private void ChangeLevel()
+        {
+            Load();
+        }
     }
 
 }

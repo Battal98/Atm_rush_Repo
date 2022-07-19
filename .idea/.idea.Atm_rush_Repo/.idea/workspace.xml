@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f36b18-835f-4c31-a468-7fad360774fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Input.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Input.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/InputData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/InputData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/HorizontalInputParams.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/HorizontalInputParams.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Signals/InputSignals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Signals/InputSignals.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Player.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/PlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/PlayerData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Atm_rush_Repo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Atm_rush_Repo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +75,7 @@
       <workItem from="1658148842728" duration="16000" />
       <workItem from="1658177627202" duration="4640000" />
       <workItem from="1658215070600" duration="5723000" />
-      <workItem from="1658224993020" duration="298000" />
+      <workItem from="1658224993020" duration="5255000" />
     </task>
     <servers />
   </component>

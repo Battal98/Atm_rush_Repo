@@ -11,7 +11,7 @@ namespace Managers
         private void Awake()
         {
             Application.targetFrameRate = 60;
-            OnGameOpen();
+            
         }
 
         private void OnEnable()

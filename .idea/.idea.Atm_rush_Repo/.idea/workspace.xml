@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="61f36b18-835f-4c31-a468-7fad360774fe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Atm_rush_Repo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Atm_rush_Repo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/JMO Assets/Toony Colors Pro/Demo TCP2/Cat Demo URP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EnesYT.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EnesYT.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/PlayerMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Input.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +76,7 @@
       <workItem from="1658148842728" duration="16000" />
       <workItem from="1658177627202" duration="4640000" />
       <workItem from="1658215070600" duration="5723000" />
-      <workItem from="1658224993020" duration="11466000" />
+      <workItem from="1658224993020" duration="12716000" />
     </task>
     <servers />
   </component>
